@@ -1,6 +1,6 @@
 # QR Code Generator Project 🚀
 
-![QR Code Generator Preview](./images/preview.png)
+![QR Code Generator Preview](https://github.com/Ajay230520/QR_GENERATOR_download/blob/main/images/preview.png)
 
 ## Overview
 The QR Code Generator project is a web application designed for hassle-free QR code generation and download based on a URL input. Ideal for various purposes like website linking, information sharing, and digital marketing strategies.
