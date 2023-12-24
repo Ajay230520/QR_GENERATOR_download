@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | QR code component</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="main">
+  <h1 class="title">QR GENERATOR</h1>
+  <div class="shape1"></div>
+  <div class="shape2"></div>
+  <div class="shape3"></div>
+  <div class="shape4"></div>
+  <div class="main_container">
+    
+    <div class="qr_container" id="img_container">
+      <img width="200px"src="./images/image-qr-code.png" alt="QR Code Image" id="qr_img">
+    </div>
+    <input class="ip" type="url" name="url" id="qrText" placeholder="Enter URL Here..">
+    <h3>Improve your front-end skills by building projects</h3>
+    <button class="btn red" id="generate" onclick="generate()">Generate </button>
+    <button type="button" class="btn" id="downloadBtn" onclick="download()">Download </button>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.linkedin.com/in/ajay-muniya-7b2b56251/?originalSubdomain=in">Ajay Muniya</a>.
+  </div>
+</div>
+  
+  <script>
+    let imgBox = document.getElementById("img_container");
+    let qr_img = document.getElementById("qr_img");
+    let qrText = document.getElementById("qrText");
+    let downloadBtn = document.getElementById("downloadBtn");
+    let url;
+  
+    function generate() {
+      if (qrText.value.length > 0) {
+        url = qr_img.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+        imgBox.style.display = "block";
+    
+      } else {
+        qrText.classList.add('error');
+        setTimeout(() => {
+          qrText.classList.remove('error');
+        }, 1000);
+      }
+    }
+  function download(){
+    if (qrText.value.length > 0) {
+      url = qr_img.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value;
+      imgBox.style.display = "block";
+      downloadBtn.addEventListener("click", async () => {
+        const response = await fetch(url);
+        const blob = await response.blob();
+        const downloadLink = document.createElement("a");
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = "qrcode.jpg";
+        downloadLink.click();
+      });
+    } else {
+      qrText.classList.add('error');
+      setTimeout(() => {
+        qrText.classList.remove('error');
+      }, 1000);
+    }
+    
+      
+    }
+    
+  </script>
+  
+  
+</body>
+</html>
