@@ -1,7 +1,7 @@
 # QR Code Generator Project 🚀
 
+![preview](https://github.com/Ajay230520/QR_GENERATOR_download/assets/112386996/59404269-e284-49e0-8d07-663d33d14632)
 
-![preview](https://github.com/Ajay230520/QR_GENERATOR_download/assets/112386996/9f6f10a5-155f-4921-896b-78fe8c629f7b)
 
 
 ## Overview
